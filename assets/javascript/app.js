@@ -7,13 +7,13 @@
     .User entry & submission will create new button on page that will also serve same function as existing buttons
 */
 
-var topics = ["puppies", "kittens", "bunnies", "cows", "penguins", "bears", "lions", "monkeys"];
+var topics = ["puppy eyes", "coffee", "excited cow", "angry alligator", "penguins", "friends", "hillary duff", "grapes of wrath", "hungry hippos", "aerobics", "giraffes"];
 
 function renderButtons() {
     $("#animalButtons").empty();
     for (var i = 0; i < topics.length; i++) {
         var a = $("<button>");
-        a.addClass("animalBtn");
+        a.addClass("animalBtn btn btn-outline-info");
         a.attr("data-name", topics[i]);
         a.text(topics[i]);
         $("#animalButtons").append(a);
@@ -23,28 +23,34 @@ function renderButtons() {
 function displayGifs () {
     
     $('#gifs-view').empty();
+    $('#play').empty();
+
+    $('#play').append('Click on each GIF to play or pause!')
     
     var topic = $(this).attr("data-name");
     var apiKey = "grb3dUIIeN8m2pT86jm2rJk7a3u9MWRg";
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&limit=10&rating=g&api_key=" + apiKey;
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&limit=16&rating=pg&api_key=" + apiKey;
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function(response){
 
-        console.log(response.data.length);
+        console.log(response.data);
 
         for (var i = 0; i < response.data.length; i++) {
-            console.log(response.data[i].rating);
             var still = response.data[i].images.fixed_height_still.url;
             var move = response.data[i].images.fixed_height.url;
+            var rating = response.data[i].rating;
+            var eachGif= $('<section class= eachGif>');
             var img = $('<img>');
             img.addClass("gif");
             img.attr("src", still);
             img.attr("data-still", still)
             img.attr("data-animate", move)
             img.attr("data-state", "still");
-            $('#gifs-view').append(img);
+            eachGif.append("<span id='rating'><strong>Rating:</strong> " + rating +"<br></span>");
+            eachGif.append(img);
+            $('#gifs-view').append(eachGif);
 
         };
     });
@@ -64,11 +70,17 @@ $(document).on("click", '.gif', function() {
 
 $(document).on('click', '.animalBtn', displayGifs);
 
-$(document).on('click', '#addAnimal', function () {
+$(document).on('click', '#submit', function () {
     event.preventDefault();
+    $("#error").html("&nbsp;");
     var userInput = $("#animal-input").val();
-    topics.push(userInput);
-    renderButtons();
+    if (userInput) {
+        topics.push(userInput);
+        renderButtons();
+        $('#animal-input').val('');
+    } else {
+        $("#error").append('Please enter a topic.');
+    }
 });
 
 renderButtons();

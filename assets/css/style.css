@@ -1,0 +1,54 @@
+img {
+    margin: 10px 10px 10px 10px;
+    height: 100px;
+}
+
+#animal-form {
+    position: relative;
+    top: 40px;
+}
+
+#animal-input {
+    width: 150px;
+}
+
+#animalButtons {
+    width: 100%;
+}
+
+#gifs-view {
+    text-align: center;
+}
+
+#start {
+    position: relative;
+    top: 150px;
+    font-size: 60px;
+    font-family: 'Amatic SC', cursive;
+}
+
+.eachGif {
+    width: 220px;
+    height: 160px;
+    float: left;
+}
+
+#rating {
+    font-size: 12px;
+}
+
+#error {
+    text-align: center;
+    color: red;
+}
+
+#play {
+    font-size: 40px;
+    text-align: center;
+    font-family: 'Amatic SC', cursive;
+    color: #24a3b8;
+}
+
+
+
+
