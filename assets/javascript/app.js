@@ -7,7 +7,7 @@
     .User entry & submission will create new button on page that will also serve same function as existing buttons
 */
 
-var topics = ["puppy eyes", "coffee", "excited cow", "angry alligator", "penguins", "friends", "hillary duff", "grapes of wrath", "hungry hippos", "aerobics", "giraffes"];
+var topics = ["puppy eyes", "coffee", "excited cow", "angry alligator", "penguins", "friends", "hillary duff", "grapes of wrath", "hippo", "aerobics", "giraffes"];
 
 function renderButtons() {
     $("#animalButtons").empty();
