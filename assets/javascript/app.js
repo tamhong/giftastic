@@ -1,22 +1,22 @@
 /* PseudoCode
-    .Create standard list of animals to appear on page
-    .Create buttons on page using list of animals
+    .Create standard list of topics to appear on page
+    .Create buttons on page using list of topics
     .When button is clicked, 10 gifs will populate page related to that button's term
     .All gifs will appear as still, but when clicked they will play and if clicked a second time, they will pause again
     .Filter Gifs to show only PG gifs
     .User entry & submission will create new button on page that will also serve same function as existing buttons
 */
 
-var topics = ["puppy eyes", "coffee", "excited cow", "angry alligator", "penguins", "friends", "hillary duff", "grapes of wrath", "hippo", "aerobics", "giraffes"];
+var topics = ["puppy eyes", "coffee", "excited cow", "angry alligator", "penguins", "friends", "hillary duff", "grapes of wrath", "hippo", "aerobics", "giraffes", "yay"];
 
 function renderButtons() {
-    $("#animalButtons").empty();
+    $("#buttons").empty();
     for (var i = 0; i < topics.length; i++) {
         var a = $("<button>");
-        a.addClass("animalBtn btn btn-outline-info");
+        a.addClass("gifGen btn btn-outline-info");
         a.attr("data-name", topics[i]);
         a.text(topics[i]);
-        $("#animalButtons").append(a);
+        $("#buttons").append(a);
     }
 }
 
@@ -68,16 +68,16 @@ $(document).on("click", '.gif', function() {
     }
 });
 
-$(document).on('click', '.animalBtn', displayGifs);
+$(document).on('click', '.gifGen', displayGifs);
 
 $(document).on('click', '#submit', function () {
     event.preventDefault();
     $("#error").html("&nbsp;");
-    var userInput = $("#animal-input").val();
+    var userInput = $("#input").val();
     if (userInput) {
         topics.push(userInput);
         renderButtons();
-        $('#animal-input').val('');
+        $('#input').val('');
     } else {
         $("#error").append('Please enter a topic.');
     }
