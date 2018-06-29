@@ -39,6 +39,7 @@ function displayGifs () {
     }).then(function(response){
 
         console.log(response.data);
+        console.log(queryURL);
 
         //generating images by looping through API data array to display on GIFs on page
 
@@ -81,7 +82,7 @@ $(document).on('click', '.gifGen', displayGifs);
 
 //Generate new buttons of user choice
 
-$(document).on('click', '#submit', function () {
+$(document).on('click', '#submit', function (event) {
 
     //Prevent submit button from reloading entire page
 
