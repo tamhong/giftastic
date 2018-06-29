@@ -1,12 +1,3 @@
-/* PseudoCode
-    .Create standard list of topics to appear on page
-    .Create buttons on page using list of topics
-    .When button is clicked, 10 gifs will populate page related to that button's term
-    .All gifs will appear as still, but when clicked they will play and if clicked a second time, they will pause again
-    .Filter Gifs to show only PG gifs
-    .User entry & submission will create new button on page that will also serve same function as existing buttons
-*/
-
 //Array of exisiting topics
 
 var topics = ["puppy eyes", "coffee", "excited cow", "angry alligator", "penguins", "friends", "hillary duff", "grapes of wrath", "hippo", "aerobics", "giraffes", "yay"];
